@@ -14,18 +14,19 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u naveen0317 --password-stdin
 
       - name: Build Backend Image
         working-directory: backend
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest .
+        run: docker build -t naveen0317/mean-backend:latest .
 
       - name: Push Backend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest
+        run: docker push naveen0317/mean-backend:latest
 
       - name: Build Frontend Image
         working-directory: frontend
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest .
+        run: docker build -t naveen0317/mean-frontend:latest .
 
       - name: Push Frontend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest
+        run: docker push naveen0317/mean-frontend:latest
+
